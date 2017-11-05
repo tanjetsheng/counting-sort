@@ -26,8 +26,8 @@ int maximum(int *array, int size){
 void countingSort(int *array, int size){
 
   int curr = 0;
-  int max = maximum(array, size);
-  int * counting_array = calloc(max, sizeof(int)); // Zeros out the array
+  int max = maximum(array, size)  ;
+  int *counting_array =calloc(max, sizeof(int)); // Zeros out the array
 
   for(curr = 0; curr < size; curr ++){
     counting_array[array[curr]]++;              //count the number in the array will +1 to the relevant array number
@@ -36,15 +36,18 @@ void countingSort(int *array, int size){
   int num = 0;
   curr = 0;
 
-if(curr <= size){
-    if(counting_array[num] != 0){
-      array[curr]=num;
-      counting_array[num]--;
+  for(curr =0;curr<=size;curr++){
+      if(counting_array[num] > 0){
+        array[curr] = num;
+        counting_array[num]--;
+        //curr++;
+    /*    if(curr > size){
+          break;
+        }*/
+      }
+      num++;
     }
-    num++;
-  }
-  else{
-  printArray(array, size);
+    printArray(array, size);
 }
+
   //return array;
-}
