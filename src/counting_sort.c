@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void printArray(int *array, int size){
 
   int curr;
@@ -36,18 +37,20 @@ void countingSort(int *array, int size){
   int num = 0;
   curr = 0;
 
-  for(curr =0;curr<=size;curr++){
-      if(counting_array[num] > 0){
+  while(curr<=size){
+      while(counting_array[num] > 0){
         array[curr] = num;
         counting_array[num]--;
-        //curr++;
-    /*    if(curr > size){
+        curr++;
+        if(curr > size){
           break;
-        }*/
+        }
       }
       num++;
     }
     printArray(array, size);
+    //return array;
 }
+
 
   //return array;
